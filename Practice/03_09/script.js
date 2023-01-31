@@ -9,18 +9,44 @@
 
 const backpack = {
   name: "Everyday Backpack",
+  setName: function (newName) {
+    this.name = newName;
+  },
+
   volume: 30,
+  setVolume: function (newVolume) {
+    this.volume = newVolume;
+  },
+
   color: "grey",
+  setColor: function (newColor) {
+    this.color = newColor;
+  },
+
   pocketNum: 15,
+  setPocketNum: function (newPocketNum) {
+    this.pocketNum = newPocketNum;
+  },
+
+  lidOpen: false,
+  toggleLid: function (lidStatus) {
+    this.lidOpen = lidStatus;
+  },
+
   strapLength: {
     left: 26,
     right: 26,
-  },
-  toggleLid: function (lidStatus) {
-    this.lidOpen = lidStatus;
   },
   newStrapLength: function (lengthLeft, lengthRight) {
     this.strapLength.left = lengthLeft;
     this.strapLength.right = lengthRight;
   },
 };
+
+console.log("Before setters: ", backpack);
+backpack.setColor("red");
+backpack.setName("Jansport");
+backpack.setPocketNum(1);
+backpack.setVolume(15);
+backpack.newStrapLength(500, 500);
+console.log("After setters: ", backpack);
