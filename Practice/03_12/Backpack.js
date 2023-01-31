@@ -37,4 +37,27 @@ class Backpack {
   }
 }
 
-export default Backpack;
+class Crate {
+  constructor(woodType, reinforced, decorated) {
+    this.woodType = woodType;
+    this.reinforced = reinforced;
+    this.decorated = decorated;
+    this.storage = [];
+  }
+
+  stash(item) {
+    this.storage.push(item);
+  }
+
+  peek() {
+    return this.storage;
+  }
+
+  empty() {
+    const stuff = this.storage;
+    this.storage = [];
+    return stuff;
+  }
+}
+
+export { Backpack, Crate };
