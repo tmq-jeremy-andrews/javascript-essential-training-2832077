@@ -57,3 +57,33 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+function main(pack, content) {
+  const image = imageHelper(pack);
+
+  const p = document.createElement("p");
+  p.innerHTML = content;
+
+  const article = document.createElement("article");
+  article.append(image);
+  article.append(p);
+
+  return article;
+}
+
+function imageHelper(pack) {
+  const image = document.createElement("img");
+  image.setAttribute("src", pack.image);
+
+  const caption = document.createElement("figcaption");
+  caption.innerHTML = pack.name;
+
+  const figure = document.createElement("figure");
+  figure.append(image);
+  figure.append(caption);
+
+  return figure;
+}
+
+const mainElement = document.querySelector("main");
+mainElement.append(main(frogpack, content));
